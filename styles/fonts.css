@@ -1,0 +1,16 @@
+:root {
+  --primary-color: #66CC00;
+  --primary-color-dark: #5f8801;
+  --background: #ffffff;
+  --foreground: #171717;
+  --input-bg: #f8f8ff;
+  --active-color: #66fe60;
+  --regular-text: #333333;
+  --border-radius: 12px;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace;
+}

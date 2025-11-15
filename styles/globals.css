@@ -1,15 +1,38 @@
 :root {
+  --primary-color: #66CC00;
+  --primary-color-dark: #5f8801;
   --background: #ffffff;
   --foreground: #171717;
+  --input-bg: #f8f8ff;
+  --active-color: #66fe60;
+  --regular-text: #333333;
+  --border-radius: 12px;
 
-  /* Keep convenience aliases that were used elsewhere */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
-  /* System font stacks as fallbacks for project fonts */
   --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace;
 }
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 
 @media (prefers-color-scheme: dark) {
   :root {
