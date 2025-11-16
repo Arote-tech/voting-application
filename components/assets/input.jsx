@@ -1,9 +1,11 @@
-import { React } from "react";
 import "@/styles/globals.css";
 
 export default function Input() {
     const emailEntry = document.getElementById("email-entry");
     const passwordEntry = document.getElementById("password-entry");
+    const form = document.getElementById("reg-form");
+    const enterBtn = document.getElementById("enter-btn");
+
 
     emailEntry.addEventListener("change", handleEmailChange);
     passwordEntry.addEventListener("change", handlePasswordChange);
@@ -29,16 +31,17 @@ export default function Input() {
         
         const value = email.value.trim();
     if (emailRegex.test(value)) {
-        showSuccess(email);
+        alert(email + " is valid");
 
         return true;
 
     } else {
-        showError(email, "Email is not valid");
+        alert(email, "Email is not valid");
         return false;
 
     }
-    }
+
+}
 
     form.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -48,8 +51,8 @@ export default function Input() {
     let isFormValid = isRequiredValid;
 
     if (isRequiredValid) {        
-        const isEmailValid = checkEmail(email);
-        const isPasswordValid = checkLength(password, 11, 11);
+        const isEmailValid = handleEmailChange(email);
+        const isPasswordValid = handlePasswordChange(password, 11, 11);
 
 
         isFormValid = isEmailValid && isPasswordValid;
@@ -64,6 +67,11 @@ export default function Input() {
             group.className = "form-group";
         });
     }
+
+    enterBtn.addEventListener("click", function() {
+        window.location.href = "/home";
+
+    })
 
 })
 
@@ -83,6 +91,8 @@ export default function Input() {
             placeholder="enter your NIN as password..." />
           </label>
         </div>
+
+        <button type="submit" id="enter-btn">Enter</button>
         
       </form>
     </div>
