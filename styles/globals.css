@@ -7,10 +7,6 @@
   --active-color: #66fe60;
   --regular-text: #333333;
   --border-radius: 12px;
-
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-
   --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace;
 }
@@ -32,6 +28,128 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+
+.main-container {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+
+.section-1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+  background-image: "balloons.jpg";
+}
+
+
+.section-2 {
+  position: absolute;
+  z-index: 1;
+  padding: 20px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  width: 90%;
+  text-align: center;
+}
+
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+
+.input-container {
+  margin: 20px 0;
+  padding: 10px;
+  background-color: var(--active-color);
+  border-radius: var(--border-radius);
+  border: 2px solid var(--primary-color-dark);
+  width: 90%;
+  max-width: 550px;
+  display: flex;
+  position: relative;
+  gap: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: var(--regular-text);
+}
+
+
+.entry {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  font-family: var(--font-sans);
+  background-color: var(--input-bg);
+  color: var(--regular-text);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+  align-items: center;
+  justify-content: center;
+}
+
+
+#enter-btn {
+  padding: 10px 20px;
+  background-color: var(--primary-color);
+  color: var(--foreground);
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.progress {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+
+.reg-notice a{
+  font-size: 0.9rem;
+  color: var(--regular-text);
+}
+
+.reg-notice a:hover {
+  text-decoration: underline;
+  color: var(--primary-color-dark);
+}
+
+.reg-notice a:active {
+  color: #ff0000;
+}
+
+
 
 
 @media (prefers-color-scheme: dark) {

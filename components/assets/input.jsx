@@ -1,5 +1,6 @@
 import "@/styles/globals.css";
 
+
 export default function Input() {
     const emailEntry = document.getElementById("email-entry");
     const passwordEntry = document.getElementById("password-entry");
@@ -92,7 +93,12 @@ export default function Input() {
           </label>
         </div>
 
-        <button type="submit" id="enter-btn">Enter</button>
+        <div className="progress">
+          <button type="submit" id="enter-btn">Enter</button>
+          <p class="reg-notice"><a href="#registration">Registration</a></p>
+
+        </div>
+
         
       </form>
     </div>

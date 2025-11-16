@@ -1,22 +1,23 @@
 
 import Input from "@/components/assets/Input.jsx";
-import ImageSlider from "@/components/ImageSlider.jsx";
+import ImageSlider from "@/components/assets/ImageSlider.jsx";
+import Image from 'next/image';
 import "@/styles/globals.css";
 
 export default function LandingPage() {
 
    const images = [
-    "https://www.gettyimages.com/detail/news-photo/an-official-of-the-independent-national-electoral-news-photo/1246204588",
-    "https://www.gettyimages.com/detail/news-photo/voter-casts-her-ballot-at-a-polling-station-during-local-news-photo/1248497296",
-    "https://www.gettyimages.com/detail/news-photo/lagos-state-independent-electoral-commission-officials-news-photo/2224207892",
-    "https://www.gettyimages.com/detail/news-photo/voters-queue-to-vote-at-a-polling-station-during-local-news-photo/1248497244",
-    "https://www.gettyimages.com/detail/news-photo/police-officer-tries-to-calm-a-situation-at-a-polling-news-photo/1248497656"
+    "https://media.gettyimages.com/id/1246204588/photo/an-official-of-the-independent-national-electoral-commission-sort-out-permanent-voters-cards.jpg?s=612x612&w=0&k=20&c=GxhEun9xxUeH-qUs_jMdtsN3Y781tzjOfu6yoySsvk4=",
+    "https://media.gettyimages.com/id/96468470/photo/a-woman-casts-her-vote-in-a-ballot-box-n-empty-ballot-box-at-agulu-in-anambra-state-on-february.jpg?s=612x612&w=0&k=20&c=iryzZ7j36g8UGzalp8-gemge7RHQKUxpbhMlfzpoCpQ=",
+    "https://media.gettyimages.com/id/1248497318/photo/voters-check-a-register-at-a-polling-station-during-local-elections-in-lagos-on-march-18-2023.jpg?s=612x612&w=0&k=20&c=JMRPcyd-woCjj1Gpyd3xe6lOfv35RXCiw8yWDSSwP2c=",
+    "https://media.gettyimages.com/id/1247473647/photo/independent-national-electoral-commission-officials-go-through-ballot-papers-during-the.jpg?s=612x612&w=0&k=20&c=FM8omvDQgOLG6REsHDV0enzuRIevTx7KLsMi7PcGkg0=",
+    "https://media.gettyimages.com/id/1247507047/photo/a-voter-cast-her-ballots-at-a-polling-unit-during-the-nigeria-presidential-election-at-a.jpg?s=612x612&w=0&k=20&c=21LC6u4-7W1C7Vh6ZRLz2_KIbHhD33Gt7SEEKyVEBLA="
   ];
 
   return (
     <div className="main-container">
-      {/* background image will go in here..... */}
       <div className="section-1">
+        <Image src="/balloons.jpg" alt="Background" layout="fill" objectFit="cover"/>
         <section>
           <Input />
         </section>
@@ -27,7 +28,6 @@ export default function LandingPage() {
 
         <section>
           <h1>Welcome to the Voting Application</h1>
-          <p>Please navigate to the voting section to participate.</p>
         </section>
       </div>
     </div>
