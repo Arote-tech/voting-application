@@ -2,7 +2,10 @@
 import Input from "@/components/assets/Input.jsx";
 import ImageSlider from "@/components/assets/ImageSlider.jsx";
 import Image from 'next/image';
-import "@/styles/globals.css";
+import "@/styles/landing.css";
+
+// Force dynamic rendering because this page contains interactive forms
+export const dynamic = 'force-dynamic';
 
 export default function LandingPage() {
 
@@ -16,20 +19,21 @@ export default function LandingPage() {
 
   return (
     <div className="main-container">
-      <div className="section-1">
-        <Image src="/balloons.jpg" alt="Background" layout="fill" objectFit="cover"/>
-        <section>
+      <section className="section-1">
+        <Image src="public/images/salvatore-andrea-santacroce-y8ZTCeKT39w-unsplash.jpg" 
+        alt="Background" width={600} height={600}/>
+        <div>
           <Input />
-        </section>
-      </div>
+        </div>
+      </section>
 
-      <div className="section-2">
+      <section className="section-2">
         <ImageSlider images={images} interval={5000} />
 
-        <section>
+        <div>
           <h1>Welcome to the Voting Application</h1>
-        </section>
-      </div>
+        </div>
+      </section>
     </div>
   );
 }

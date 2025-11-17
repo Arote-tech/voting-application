@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import './ImageSlider.css';
+import '@/styles/globals.css';
 
 export default function ImageSlider({ images = [], interval = 3000 }) {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -36,7 +36,7 @@ export default function ImageSlider({ images = [], interval = 3000 }) {
             <div className="slider-track" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
                 {images.map((src, i) => (
                     <div className="slider-slide" key={i}>
-                        <img src={src} alt={`slide-${i}`} />
+                        <img src={src} alt={`slide ${i + 1}`} loading="lazy" decoding="async" />
                     </div>
                 ))}
             </div>

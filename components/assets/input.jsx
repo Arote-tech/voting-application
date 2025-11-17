@@ -1,106 +1,96 @@
-import "@/styles/globals.css";
+"use client";
 
+import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
-export default function Input() {
-    const emailEntry = document.getElementById("email-entry");
-    const passwordEntry = document.getElementById("password-entry");
-    const form = document.getElementById("reg-form");
-    const enterBtn = document.getElementById("enter-btn");
+export default function InputData() {
+  const router = useRouter();
+  const [form, setForm] = useState({ email: '', password: '' });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+  };
 
+  const validateEmail = (email) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
+  };
 
-    emailEntry.addEventListener("change", handleEmailChange);
-    passwordEntry.addEventListener("change", handlePasswordChange);
+  const validateNIN = (value) => {
+    return /^\d{11}$/.test(value);
+  };
 
-    const handlePasswordChange = (event) => {
-        event.preventDefault();
-        const password = "12345678901";
-        event.target.value = password;
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const { email, password } = form;
 
-        if(password.length !== 11) {
-            alert("NIN must be 11 digits");
-        }else if(isNaN(password)) {
-            alert("NIN must be made of numbers only");
-        }else {
-            console.log("NIN accepted");
-        }
+    if (!validateEmail(email)) {
+      alert('Email is not valid');
+      return;
     }
 
-    const handleEmailChange = (event) => {
-        event.preventDefault();
-        const email = event.target.value;
-        const emailRegex = "/^[^\s@]+@[^\s@]+\.[^\s@]+$/";
-        
-        const value = email.value.trim();
-    if (emailRegex.test(value)) {
-        alert(email + " is valid");
-
-        return true;
-
-    } else {
-        alert(email, "Email is not valid");
-        return false;
-
+    if (!validateNIN(password)) {
+      alert('NIN must be exactly 11 digits (numbers only)');
+      return;
     }
 
-}
-
-    form.addEventListener("submit", function (event) {
-    event.preventDefault();
-
-    const isRequiredValid = checkRequired([email, password ]);
-
-    let isFormValid = isRequiredValid;
-
-    if (isRequiredValid) {        
-        const isEmailValid = handleEmailChange(email);
-        const isPasswordValid = handlePasswordChange(password, 11, 11);
-
-
-        isFormValid = isEmailValid && isPasswordValid;
-    }
-
-    if (isFormValid) {
-        alert("Registration successful. Please do not for any reason share your NIN with anyone.");
-
-        form.reset();
-
-        document.querySelectorAll(".form-group").forEach(group => {
-            group.className = "form-group";
-        });
-    }
-
-    enterBtn.addEventListener("click", function() {
-        window.location.href = "/home";
-
-    })
-
-})
+    alert('Registration successful. Please do not share your NIN.');
+    setForm({ email: '', password: '' });
+    router.push('/home');
+  };
 
   return (
     <div className="input-container">
-      <form action="submit" id="reg-form">
+      <form id="reg-form" onSubmit={handleSubmit} noValidate>
         <div className="form-group">
           <label htmlFor="email">
-            <input type = "email" className="entry" id="email-entry" 
-            placeholder="enter your email address..." />
+            <input
+              name="email"
+              type="email"
+              className="entry"
+              id="email-entry"
+              value={form.email}
+              onChange={handleChange}
+              placeholder="enter your email address..."
+            />
           </label>
+          {!validateEmail(form.email) && form.email.length > 0 && (
+            <div className="field-error">Please enter a valid email address.</div>
+          )}
         </div>
-        
+
         <div className="form-group">
           <label htmlFor="password">
-            <input type = "number" className="entry" id="password-entry" 
-            placeholder="enter your NIN as password..." />
+            <input
+              name="password"
+              type="text"
+              inputMode="numeric"
+              pattern="\d*"
+              className="entry"
+              id="password-entry"
+              value={form.password}
+              onChange={handleChange}
+              placeholder="enter your NIN as password..."
+            />
           </label>
+          {form.password.length > 0 && !validateNIN(form.password) && (
+            <div className="field-error">NIN must be exactly 11 digits.</div>
+          )}
         </div>
 
         <div className="progress">
-          <button type="submit" id="enter-btn">Enter</button>
-          <p class="reg-notice"><a href="#registration">Registration</a></p>
-
+          <button
+            type="submit"
+            id="enter-btn"
+            disabled={!(validateEmail(form.email) && validateNIN(form.password))}
+          >
+            Enter
+          </button>
+          <p className="reg-notice">
+            <a href="#registration">Registration</a>
+          </p>
         </div>
-
-        
       </form>
     </div>
-  )
+  );
 }
