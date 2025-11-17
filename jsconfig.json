@@ -1,9 +1,13 @@
 {
 	"compilerOptions": {
-        "ignoreDeprecations": "6.0",
+		"ignoreDeprecations": "6.0",
 		"baseUrl": ".",
 		"paths": {
-			"@/*": ["./*"]
+			"@/styles/*": ["./styles/*"],
+			"@/components/*": ["./components/*"],
+			"@/lib/*": ["./lib/*"],
+			"@/public/*": ["./public/*"],
+			"@/app/*": ["./app/*"]
 		}
 	}
 }
