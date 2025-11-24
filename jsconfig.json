@@ -1,13 +1,22 @@
 {
 	"compilerOptions": {
-		"ignoreDeprecations": "6.0",
+		// This is the setting that satisfies the modern requirements:
+    	"moduleResolution": "Bundler",
 		"baseUrl": ".",
 		"paths": {
+			"@/*": ["./*"],
 			"@/styles/*": ["./styles/*"],
 			"@/components/*": ["./components/*"],
 			"@/lib/*": ["./lib/*"],
 			"@/public/*": ["./public/*"],
 			"@/app/*": ["./app/*"]
 		}
-	}
+
+  },
+  		"jsx": "preserve",
+  		"target": "esnext",
+
+  		"include": ["next-env.d.ts", "**/*.js", "**/*.jsx", "**/*.mjs"],
+  		"exclude": ["node_modules"]
+
 }
