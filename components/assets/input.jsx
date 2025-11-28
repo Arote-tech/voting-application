@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import "@/styles/globals.css";
 
 export default function InputData() {
   const router = useRouter();
@@ -36,7 +37,7 @@ export default function InputData() {
 
     alert('Registration successful. Please do not share your NIN.');
     setForm({ email: '', password: '' });
-    router.push('/home');
+    router.push('/otp');
   };
 
   return (
@@ -47,7 +48,6 @@ export default function InputData() {
             <input
               name="email"
               type="email"
-              className="entry"
               id="email-entry"
               value={form.email}
               onChange={handleChange}
@@ -66,7 +66,6 @@ export default function InputData() {
               type="text"
               inputMode="numeric"
               pattern="\d*"
-              className="entry"
               id="password-entry"
               value={form.password}
               onChange={handleChange}
@@ -78,7 +77,7 @@ export default function InputData() {
           )}
         </div>
 
-        <div className="progress">
+        <div className="button-container">
           <button
             type="submit"
             id="enter-btn"

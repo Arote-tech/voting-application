@@ -5,9 +5,9 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'https://www.gettyimages.com/photos/nigeria-elections',
+        hostname: 'media.gettyimages.com',
         port: '',
-        pathname: '/photos/nigeria-elections/**',
+        pathname: '/photo**',
         search: '',
       },
     ],

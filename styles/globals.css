@@ -38,7 +38,7 @@ body {
 }
 
 
-image {
+img {
   object-fit: cover;
   width: 100%;
   height: 100%;
@@ -47,12 +47,12 @@ image {
 
 
 .section-1 {
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
   width: 100%;
   height: 50%;
-  z-index: -1;
+  z-index: 1;
   justify-content: center;
   align-items: center;
   background: no-repeat center/cover url("/images/salvatore-andrea-santacroce-y8ZTCeKT39w-unsplash.jpg");
@@ -60,14 +60,23 @@ image {
 
 
 .section-2 {
+  position: relative;
   bottom: 0;
-  transform: translateY(-50%);
-  z-index: -1;
+  z-index: 1;
   width: 100%;
+  height: 50%;
   text-align: center;
   font-size: 1.2rem;
   color: var(--input-bg, --primary-color);
   background-color: var(--background);
+}
+
+.images {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  bottom: 0;
 }
 
 
@@ -86,7 +95,7 @@ p {
 
 
 .input-container {
-  top: 1.25rem;
+  top: 0;
   left: 50%;
   transform: translateX(-50%);
   padding: 10px;
@@ -120,6 +129,8 @@ p {
 .input {
   flex: 1;
   padding: 10px;
+  width: 90%;
+  height: 2rem;
   border: none;
   border-radius: var(--border-radius);
   font-size: 0.9rem;
@@ -158,7 +169,7 @@ p {
 }
 
 
-.progress {
+.button-container {
   display: flex;
   flex-direction: column;
   align-items: center;

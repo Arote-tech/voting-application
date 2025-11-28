@@ -1,4 +1,4 @@
-import "@/styles/globals.css";
+import "./styles/globals.css";
 
 // Static page with no user interaction or API calls
 export const dynamic = 'auto'; // Default: prerender as static
